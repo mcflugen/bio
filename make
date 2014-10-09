@@ -4,9 +4,12 @@ import os
 from glob import glob
 
 
+BASENAME = 'huttone-two-page-cv'
+VERBOSE = False
+
 def system(args, verbose=False):
     print ' '.join(args)
-    if verbose:
+    if VERBOSE:
         call = subprocess.check_call
     else:
         call = subprocess.check_output
@@ -52,11 +55,16 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('base')
     parser.add_argument('command', nargs='*', choices=['all', 'clean'],
-                        default='all')
+                        default='all', help='Command [all]')
+    parser.add_argument('--base', default=BASENAME,
+                        help='Basename for file [%s]' % BASENAME)
+    parser.add_argument('--verbose', action='store_true',
+                        help='Be verbose')
 
     args = parser.parse_args()
+
+    globals()['VERBOSE'] = args.verbose
 
     for cmd in args.command:
         if cmd == 'all':
