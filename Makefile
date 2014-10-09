@@ -1,12 +1,7 @@
 NAME=huttone
 CV=$(NAME)-two-page-cv
-BIBDIR=../bib
-BIBFILES=$(BIBDIR)/$(NAME)-inpress.bib \
-				 $(BIBDIR)/$(NAME)-abstracts.bib \
-				 $(BIBDIR)/$(NAME)-citations.bib \
-				 $(BIBDIR)/$(NAME)-proceedings.bib \
-				 $(BIBDIR)/$(NAME)-five-most-recent.bib \
-				 ./$(NAME)-five-relevant.bib
+BIBDIR=.
+BIBFILES=./$(NAME)-five-relevant.bib ./$(NAME)-five-other.bib
 
 # Write stdout here
 #OUTPUT=/dev/null
